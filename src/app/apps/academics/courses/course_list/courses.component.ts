@@ -23,6 +23,10 @@ export class CoursesComponent implements OnInit {
 
   courses: Course[] = [];
   page: number = 1;
+  totalCount: number = 0;
+  limit: number = 0;
+  startIndex: number = 0;
+  endIndex: number = 0;
   files: File | null = null; // Single file object
   category: any[] = [];
   modalRef!: NgbModalRef;
@@ -59,6 +63,18 @@ export class CoursesComponent implements OnInit {
       next: (response) => {
         if (response.success) {
           this.courses = response.data.courses;
+          this.totalCount = Number(response.data.total_count) || 0;
+          this.limit = Number(response.data.limit) || 0;
+          if (this.totalCount > 0 && this.limit > 0) {
+            this.startIndex = (this.page - 1) * this.limit + 1;
+            this.endIndex = Math.min(
+              this.startIndex + this.limit - 1,
+              this.totalCount
+            );
+          } else {
+            this.startIndex = 0;
+            this.endIndex = 0;
+          }
 
           console.log("Courses loaded:", this.courses);
         } else {
@@ -158,6 +174,11 @@ export class CoursesComponent implements OnInit {
     this.router.navigate([`admin/courses`, course.id]);
 
 
+  }
+
+  onPageChange(page: number): void {
+    this.page = page;
+    this.getCourse();
   }
 
   private getCategory(): void {

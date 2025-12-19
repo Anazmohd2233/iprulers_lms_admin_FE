@@ -8,6 +8,8 @@ export const environment = {
   GOOGLE_MAPS_API_KEY: 'AIzaSyDpgQMpcfx1QU-8SM-ljcgjG4xrYtIYby4',
    baseUrl:'https://iprulerslive.com',
   // baseUrl: 'http://localhost:5000', 
+    //  baseUrl:'https://demo.itdeck.online',
+
 
 };
 

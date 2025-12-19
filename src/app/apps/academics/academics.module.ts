@@ -14,6 +14,7 @@ import {
   NgbModalModule,
   NgbNavModule,
   NgbProgressbarModule,
+  NgbPaginationModule,
   NgbTimepickerModule,
   NgbTooltipModule,
 } from "@ng-bootstrap/ng-bootstrap";
@@ -60,6 +61,7 @@ import { SortablejsModule } from "ngx-sortablejs";
     NgbModalModule,
     NgbTooltipModule,
     NgbDropdownModule,
+    NgbPaginationModule,
     NgApexchartsModule,
     WidgetModule,
     PageTitleModule,
