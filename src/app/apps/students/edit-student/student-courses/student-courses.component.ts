@@ -76,7 +76,7 @@ export class StudentCoursesComponent implements OnInit {
 
 
   private getCourse(): void {
-    this.courseService.getCourses(this.page).subscribe({
+    this.courseService.getCourses('all').subscribe({
       next: (response) => {
         if (response.success) {
           this.courses = response.data.courses;
